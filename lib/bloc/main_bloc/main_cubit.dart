@@ -51,6 +51,12 @@ class MainCubit extends Cubit<MainStates> {
     uniqueCont.clear();
   }
 
+  void initialize(context) {
+    FirebaseMessaging.onMessage.listen((message) {
+      fetchCase();
+    });
+  }
+
   refreshState() {
     emit(MainInitial());
   }
